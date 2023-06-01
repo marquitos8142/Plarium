@@ -6,14 +6,22 @@ public class Character : MonoBehaviour
 {
     public float MovementSpeed = 1;
     public float JumpForce = 1;
-    
+    private Rigidbody2D rb;
     private Rigidbody2D _rigibody;
     private Animator _anim;
+    private bool moveLeft;
+    private bool moveRight;
+    private float horizontalMove;
+
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         _rigibody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+
+        moveLeft = false;
+        moveRight = false;
     }
 
     private void Update()

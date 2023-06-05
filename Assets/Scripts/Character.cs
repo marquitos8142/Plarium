@@ -6,22 +6,13 @@ public class Character : MonoBehaviour
 {
     public float MovementSpeed = 1;
     public float JumpForce = 1;
-    private Rigidbody2D rb;
     private Rigidbody2D _rigibody;
     private Animator _anim;
-    private bool moveLeft;
-    private bool moveRight;
-    private float horizontalMove;
-
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         _rigibody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-
-        moveLeft = false;
-        moveRight = false;
     }
 
     private void Update()
@@ -32,7 +23,7 @@ public class Character : MonoBehaviour
         if (!Mathf.Approximately(0, movement))
             transform.rotation = movement > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
 
-        if (Input.GetButtonDown("Jump") )
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigibody.velocity.y) < 0.001f)
         {
             Debug.Log(Mathf.Abs(_rigibody.velocity.y));
             _rigibody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);

@@ -43,18 +43,18 @@ public class playerScript : MonoBehaviour
     {
         if (isLeft)
         {
-            rb.AddForce(new Vector2(-speedForce, 0) * Time.deltaTime);
+            rb.AddForce(new Vector2(-speedForce, 0),  ForceMode2D.Impulse);
         }
 
         if (isRight)
         {
-            rb.AddForce(new Vector2(speedForce, 0) * Time.deltaTime);
+            rb.AddForce(new Vector2(speedForce, 0),  ForceMode2D.Impulse);
         }
 
         if (isJump && canJump)
         {
             isJump = false;
-            rb.AddForce(new Vector2(0, jumpForce));
+            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             canJump = false;
             Invoke("waitToJump", waitJump);
         }

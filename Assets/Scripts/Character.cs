@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public float MovementSpeed = 1;
-    public float JumpForce = 1;
+    private bool jump;
+    private bool canjump;
     private Rigidbody2D _rigibody;
     private Animator _anim;
+
+    public float MovementSpeed = 1;
+    public float JumpForce = 1;
 
     private void Start()
     {
@@ -23,11 +26,32 @@ public class Character : MonoBehaviour
         if (!Mathf.Approximately(0, movement))
             transform.rotation = movement > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigibody.velocity.y) < 0.001f)
+        if (Input.GetButtonDown("Jump") )
         {
+            if (canjump)
+            {
+                jump = true;
+                canjump = false;
+            }
+                
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (jump )
+        {
+            jump = false;
             Debug.Log(Mathf.Abs(_rigibody.velocity.y));
             _rigibody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             _anim.SetTrigger("jump");
+        }
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.GetComponent<Piso>())
+        {
+            canjump = true;
         }
     }
 }

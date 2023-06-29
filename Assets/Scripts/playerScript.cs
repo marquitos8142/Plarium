@@ -14,6 +14,13 @@ public class playerScript : MonoBehaviour
     public float jumpForce;
     public float waitJump;
 
+    private AudioSource SonidodDeSalto;
+
+    private void Start()
+    {
+        SonidodDeSalto = GetComponent<AudioSource>();
+    }
+
     public void clickLeft()
     {
         isLeft = true;
@@ -41,27 +48,35 @@ public class playerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (isLeft)
         {
-            rb.AddForce(new Vector2(-speedForce, 0),  ForceMode2D.Impulse);
+            //rb.AddForce(new Vector2(-speedForce, 0), ForceMode2D.Impulse);
+            transform.Translate(Vector3.left * speedForce * Time.deltaTime);
         }
 
         if (isRight)
         {
-            rb.AddForce(new Vector2(speedForce, 0),  ForceMode2D.Impulse);
+            //rb.AddForce(new Vector2(speedForce, 0), ForceMode2D.Impulse);
+            transform.Translate(Vector3.right * speedForce * Time.deltaTime);
         }
 
         if (isJump && canJump)
         {
+
             isJump = false;
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             canJump = false;
             Invoke("waitToJump", waitJump);
+            SonidodDeSalto.Play();
         }
     }
 
-    void waitToJump()
+    void OnCollisionEnter2D(Collision2D col)
     {
-        canJump = true;
+        if (col.gameObject.GetComponent<Piso>())
+        {
+            canJump = true;
+        }
     }
 }

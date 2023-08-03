@@ -74,6 +74,7 @@ public class playerScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+
         if (col.gameObject.GetComponent<Piso>())
         {
             canJump = true;

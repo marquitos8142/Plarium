@@ -58,12 +58,20 @@ public class Character : MonoBehaviour
         {
             canjump = true;
         }
+        if (col.gameObject.GetComponent<Pegajoso>())
+        {
+            transform.SetParent(col.gameObject.transform);
+        }
     }
     void OnCollisionExit2D(Collision2D col)
     {
         if (col.gameObject.GetComponent<Piso>())
         {
             canjump = true;
+        }
+        if (col.gameObject.GetComponent<Pegajoso>())
+        {
+            transform.SetParent(null);
         }
     }
 }

@@ -5,13 +5,15 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     private bool jump;
-    private bool canjump;
+    private bool canjump = false;
     private Rigidbody2D _rigibody;
     private Animator _anim;
     private AudioSource SonidodDeSalto;
 
     public float MovementSpeed = 1;
     public float JumpForce = 1;
+
+    
 
     private void Start()
     {
@@ -44,10 +46,10 @@ public class Character : MonoBehaviour
         if (jump )
         {
             jump = false;
-            Debug.Log(Mathf.Abs(_rigibody.velocity.y));
+            Debug.Log("salta");
             _rigibody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             _anim.SetTrigger("jump");
-            SonidodDeSalto.Play(); 
+            SonidodDeSalto.Play();
         }
     }
     void OnCollisionEnter2D(Collision2D col)
@@ -55,6 +57,21 @@ public class Character : MonoBehaviour
         if (col.gameObject.GetComponent<Piso>())
         {
             canjump = true;
+        }
+        if (col.gameObject.GetComponent<Pegajoso>())
+        {
+            transform.SetParent(col.gameObject.transform);
+        }
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.GetComponent<Piso>())
+        {
+            canjump = true;
+        }
+        if (col.gameObject.GetComponent<Pegajoso>())
+        {
+            transform.SetParent(null);
         }
     }
 }

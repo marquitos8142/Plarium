@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstaculo : MonoBehaviour
+public class Tiro : MonoBehaviour
 {
-    [SerializeField] GameObject gameObjectToDeactivate1;
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D [] hits = Physics2D.RaycastAll(transform.position, Vector3.down, 100);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(
+    // Update is called once per frame
+    void Update()
+    {
+        RaycastHit2D [] hits = Physics2D.RaycastAll(Vector3.left, transform.position, 100);
         foreach(RaycastHit2D hit in hits )
         {
             if (hit.collider.transform.GetComponent<Character>())

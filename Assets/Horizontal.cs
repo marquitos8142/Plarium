@@ -7,6 +7,7 @@ public class Horizontal : MonoBehaviour
     public float avance = 1;
     public float limD = 10;
     public float limI = 10;
+    [SerializeField] GameObject gameObjectToDeactivate1;
     bool muevederecha = true;
     bool activo = false;
 
@@ -21,6 +22,7 @@ public class Horizontal : MonoBehaviour
     {
         if (activo)
         {
+            gameObjectToDeactivate1.SetActive(true);
             if (transform.position.x > limD)
             {
                 muevederecha = false;

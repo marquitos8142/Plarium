@@ -9,6 +9,7 @@ public class Vertical : MonoBehaviour
     public float limB = 10;
     bool muevederecha = true;
     bool activo = false;
+    [SerializeField] GameObject gameObjectToDeactivate1;
 
     public void Activar()
     {
@@ -21,6 +22,7 @@ public class Vertical : MonoBehaviour
     {
         if (activo)
         {
+            gameObjectToDeactivate1.SetActive(true);
             if (transform.position.y > limA)
             {
                 muevederecha = false;

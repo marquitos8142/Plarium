@@ -12,7 +12,9 @@ public class Character : MonoBehaviour
 
     public float MovementSpeed = 1;
     public float JumpForce = 1;
-
+    [SerializeField] private Data data;
+    
+    public Data Leerdata => data;
     
 
     private void Start()
@@ -20,6 +22,7 @@ public class Character : MonoBehaviour
         _rigibody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         SonidodDeSalto = GetComponent<AudioSource>();
+        Leerdata.Reviveplayer();
     }
 
     private void Update()

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "data player", order = 1)]
 public class Data : ScriptableObject
 {
-    [SerializeField] private int vidas;
+    [SerializeField] private int vidas = 3;
     [SerializeField] bool estaVivo = true;
 
     public bool Vive()
@@ -33,4 +33,5 @@ public class Data : ScriptableObject
     {
         vidas = 3;
     }
+
 }

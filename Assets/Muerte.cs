@@ -17,7 +17,14 @@ public class Muerte : MonoBehaviour
                 cplayer.Leerdata.Murioplayer();
                 SceneManager.LoadScene(Nivel);
             }
-           
+            if (cplayer.Leerdata.Leervidas() == 0)
+            {
+                SceneManager.LoadScene(2);
+                cplayer.Leerdata.Murioplayer();
+                cplayer.Leerdata.Resetvidas();
+            }
+
+
         }
     }
 }

@@ -10,7 +10,21 @@ public class Muerte : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(Nivel);
+                Character cplayer = collision.gameObject.GetComponent<Character>();
+            if (cplayer.Leerdata.Vive())
+            {
+                cplayer.Leerdata.Restarvidas();
+                cplayer.Leerdata.Murioplayer();
+                SceneManager.LoadScene(Nivel);
+            }
+            if (cplayer.Leerdata.Leervidas() == 0)
+            {
+                SceneManager.LoadScene(2);
+                cplayer.Leerdata.Murioplayer();
+                cplayer.Leerdata.Resetvidas();
+            }
+
+
         }
     }
 }

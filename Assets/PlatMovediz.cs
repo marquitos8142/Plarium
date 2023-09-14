@@ -2,28 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Horizontal : MonoBehaviour
+public class PlatMovediz : MonoBehaviour
 {
     public float avance = 1;
     public float limD = 10;
     public float limI = 10;
-    [SerializeField] GameObject gameObjectToDeactivate1;
     bool muevederecha = true;
-    bool activo = false;
 
-    public void Activar()
+    // Start is called before the first frame update
+    void Start()
     {
-        activo = true;
+        
     }
-
 
     // Update is called once per frame
     void Update()
     {
-        if (activo)
-        {
-            gameObjectToDeactivate1.SetActive(true);
-            if (transform.position.x > limD)
+        if (transform.position.x > limD)
             {
                 muevederecha = false;
             }
@@ -39,7 +34,5 @@ public class Horizontal : MonoBehaviour
             {
                 transform.position = new Vector3(transform.position.x - avance, transform.position.y, transform.position.z);
             }
-        }
-
     }
 }

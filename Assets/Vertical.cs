@@ -7,39 +7,41 @@ public class Vertical : MonoBehaviour
     public float avance = 1;
     public float limA = 10;
     public float limB = 10;
-    bool muevederecha = true;
+    bool muevearriba = true;
     bool activo = false;
-    [SerializeField] GameObject gameObjectToDeactivate1;
 
+
+    // Start is called before the first frame update
     public void Activar()
     {
         activo = true;
     }
 
-
     // Update is called once per frame
     void Update()
     {
-        if (activo)
+        if(activo)
         {
-            gameObjectToDeactivate1.SetActive(true);
             if (transform.position.y > limA)
             {
-                muevederecha = false;
+                muevearriba = false;
+
             }
             if (transform.position.y < limB)
             {
-                muevederecha = true;
+                muevearriba = true;
+
             }
-            if (muevederecha == true)
+            if (muevearriba == true)
             {
-                transform.position = new Vector3(transform.position.x , transform.position.y + avance, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + avance, transform.position.z);
             }
-            if (muevederecha == false)
+            if (muevearriba == false)
             {
-                transform.position = new Vector3(transform.position.x , transform.position.y - avance, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y - avance, transform.position.z);
             }
         }
-
+        
+        
     }
 }

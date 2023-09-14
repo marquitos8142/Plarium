@@ -12,17 +12,14 @@ public class Character : MonoBehaviour
 
     public float MovementSpeed = 1;
     public float JumpForce = 1;
-    [SerializeField] private Data data;
 
-    public Data Leerdata => data;
-
+    
 
     private void Start()
     {
         _rigibody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         SonidodDeSalto = GetComponent<AudioSource>();
-        Leerdata.Reviveplayer();
     }
 
     private void Update()
@@ -33,20 +30,20 @@ public class Character : MonoBehaviour
         if (!Mathf.Approximately(0, movement))
             transform.rotation = movement > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") )
         {
             if (canjump)
             {
                 jump = true;
                 canjump = false;
             }
-
+                
         }
     }
 
     private void FixedUpdate()
     {
-        if (jump)
+        if (jump )
         {
             jump = false;
             Debug.Log("salta");

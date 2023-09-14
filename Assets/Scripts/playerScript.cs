@@ -13,14 +13,12 @@ public class playerScript : MonoBehaviour
     public float speedForce;
     public float jumpForce;
     public float waitJump;
-    public Animator anim;
 
     private AudioSource SonidodDeSalto;
 
     private void Start()
     {
         SonidodDeSalto = GetComponent<AudioSource>();
-        anim = GetComponent<Animator>();
     }
 
     public void clickLeft()
@@ -50,22 +48,17 @@ public class playerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
         if (isLeft)
         {
             //rb.AddForce(new Vector2(-speedForce, 0), ForceMode2D.Impulse);
             transform.Translate(Vector3.left * speedForce * Time.deltaTime);
-            
-
-
         }
 
         if (isRight)
         {
             //rb.AddForce(new Vector2(speedForce, 0), ForceMode2D.Impulse);
             transform.Translate(Vector3.right * speedForce * Time.deltaTime);
-            
-
         }
 
         if (isJump && canJump)
@@ -76,9 +69,6 @@ public class playerScript : MonoBehaviour
             canJump = false;
             Invoke("waitToJump", waitJump);
             SonidodDeSalto.Play();
-            anim.SetTrigger("jump");
-            Debug.Log("saltando");
-
         }
     }
 

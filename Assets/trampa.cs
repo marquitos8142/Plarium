@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Muerte : MonoBehaviour
+public class trampa : MonoBehaviour
 {
-    public int Nivel = 1;
+    [SerializeField] GameObject gameObjectToDeactivate;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(Nivel);
+            gameObjectToDeactivate.SetActive(true);
+    
         }
     }
+
+ 
 }

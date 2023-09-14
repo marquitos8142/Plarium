@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Obstaculo : MonoBehaviour
 {
+    [SerializeField] GameObject gameObjectToDeactivate1;
 
     // Update is called once per frame
     void Update()
@@ -14,6 +15,8 @@ public class Obstaculo : MonoBehaviour
             if (hit.collider.transform.GetComponent<Character>())
             {
                 transform.GetComponent<Rigidbody2D>().simulated = true;
+
+              
             }
         }
 

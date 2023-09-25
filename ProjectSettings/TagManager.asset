@@ -43,3 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Jugador
+    uniqueID: 2785133757
+    locked: 0

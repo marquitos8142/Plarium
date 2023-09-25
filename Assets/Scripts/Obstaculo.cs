@@ -16,12 +16,12 @@ public class Obstaculo : MonoBehaviour
             {
                 transform.GetComponent<Rigidbody2D>().simulated = true;
 
-              
+
             }
         }
 
             
 
-        Debug.DrawRay(transform.position, Vector3.down*100);
+        //Debug.DrawRay(transform.position, Vector3.down*100);
     }
 }

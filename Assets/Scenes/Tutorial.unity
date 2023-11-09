@@ -1514,6 +1514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
+  Nivelanterior: 4
 --- !u!1 &237211651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,6 +1884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
+  Nivelanterior: 4
 --- !u!1 &296319395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,6 +2419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
+  Nivelanterior: 4
 --- !u!1 &333211270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,6 +2934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
+  Nivelanterior: 4
 --- !u!1 &437378354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,6 +3172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
+  Nivelanterior: 4
 --- !u!1 &442359454
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,6 +5063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
+  Nivelanterior: 4
 --- !u!1 &885079669
 GameObject:
   m_ObjectHideFlags: 0
@@ -6736,6 +6742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
+  Nivelanterior: 4
 --- !u!1 &1331709638
 GameObject:
   m_ObjectHideFlags: 0
@@ -7742,6 +7749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
+  Nivelanterior: 4
 --- !u!1 &1523146126
 GameObject:
   m_ObjectHideFlags: 0
@@ -9522,6 +9530,7 @@ MonoBehaviour:
   speedForce: 4
   jumpForce: 14
   waitJump: 0.5
+  anim: {fileID: 0}
 --- !u!82 &2003220721
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9966,6 +9975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
+  Nivelanterior: 4
 --- !u!1 &2133346285
 GameObject:
   m_ObjectHideFlags: 0

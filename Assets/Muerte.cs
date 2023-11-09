@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Muerte : MonoBehaviour
 {
     public int Nivel = 1;
+    public int Nivelanterior = 1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -19,7 +20,7 @@ public class Muerte : MonoBehaviour
             }
             if (cplayer.Leerdata.Leervidas() == 0)
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(Nivelanterior);
                 cplayer.Leerdata.Murioplayer();
                 cplayer.Leerdata.Resetvidas();
             }

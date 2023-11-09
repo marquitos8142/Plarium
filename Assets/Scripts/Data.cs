@@ -31,7 +31,7 @@ public class Data : ScriptableObject
     }
     public void Resetvidas()
     {
-        vidas = 3;
+        vidas = 6;
     }
 
 }
